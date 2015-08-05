@@ -1,0 +1,401 @@
+{
+  "name": "autocomplete-polymer",
+  "main": "./lib/main",
+  "version": "0.2.4",
+  "description": "Polymer element and attribute autocompletions",
+  "keywords": [
+    "Polymer",
+    "Autocomplete",
+    "Web Components",
+    "Components",
+    "Atom",
+    "Polymer.js",
+    "web-components"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SlicedSilver/autocomplete-polymer"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">=0.174.0 <2.0.0"
+  },
+  "providedServices": {
+    "autocomplete.provider": {
+      "versions": {
+        "2.0.0": "getProvider"
+      }
+    }
+  },
+  "dependencies": {
+    "esprima": "^2.2.0",
+    "scandal": "2.0.0",
+    "temp": "0.8.1",
+    "estraverse": "^4.1.0"
+  },
+  "author": {
+    "name": "Mark Silverwood"
+  },
+  "readme": "![polymer autocomplete logo](https://cloud.githubusercontent.com/assets/3482679/7901748/3685cfb6-0798-11e5-8865-6106193cc2e4.png)  \n\n## Polymer Autocomplete Package\n\nPolymer element tag and attribute autocompletions in Atom.\n\n\n:movie_camera: [Preview video of autocomplete-polymer in action](https://dl.dropboxusercontent.com/u/6808702/autocomplete-polymer-preview.mp4)\n\n### Package Installation\nFrom the Atom editor menus, navigate to `Atom -> Preferences`.  \nClick on the install tab and enter `autocomplete-polymer` in the search field.  \n\n### Usage guide\nFor the package to offer autocompletion hints it needs to have a list of the possible elements\nin your current project. This is saved within a file in your projects root directory named `.ac-poly.json`. This file needs to built for each polymer project and updated when elements are changed or added (including bower components). It is recommended that the file is added to your `.gitignore`.  \n\nWhenever you need to build / update the autocompletion dictionary (`.ac-poly.json`) then run the `Update Project Completions Dictionary` command in the autocomplete-polymer package menu (`Packages  ->  Autocomplete Polymer`) in the top toolbar.  \nYou can also call `Autocomplete Polymer:Update` from the command palette (`cmd + shift + p`) or use the keyboard shortcut `ctrl + alt + p`.\n\n### How it works\nThe package builds a list of autocompletions by:\n- Scanning your projects directory for all `js` and `html` files that are not within a folder named `test` or `demo`.\n- then it searches through those files for the Polymer element registration calls (`Polymer({ is: '...'})`).\n- The identified scripts containing the Polymer calls are then parsed and analysed by `esprima` such that we can pull out the elements names and a list of it's properties.\n- A JSON object is written to the projects root folder which contains all the element names and the properties associated with those elements.\n\n### Important Notes\n- Probably not compatible with atom projects which have multiple root folders.\n- Will ignore any files placed within a `test` or `demo` folder.\n- Only scans `js` and `html` files.\n- Required to run the update command whenever there is a need to refresh the completions dictionary.\n\n### Recommended Packages for Atom\n- For Polymer snippets check out: [atom-polymer](https://atom.io/packages/atom-polymer)  \n- Html autocompletions: [autocomplete-html](https://atom.io/packages/autocomplete-html)  \n- Automatic closing of html tags: [autoclose-html](https://atom.io/packages/autoclose-html)  \n- File path autocompletions: [autocomplete-paths](https://atom.io/packages/autocomplete-paths)\n- Html code linter: [linter-htmlhint](https://atom.io/packages/linter-htmlhint)\n\n\n### Acknowledgements\nThis project is a fork of the [autocomplete-html](https://github.com/atom/autocomplete-html) project.  The project makes use of [scandal](https://github.com/atom/scandal) for directory scanning and file searching, [esprima](http://http://esprima.org/) for the javascript analysis and [estraverse](https://github.com/estools/estraverse) for the transversal of the abstract syntax tree.\n\n### Bugs, Improvements, Requests\nPlease add an issue in the GitHub repository if you find any bugs, have improvement ideas, or requests.\n\n### Contributing\nAny pull requests will be greatly welcome since I'm sure there is plenty of room for improvement.\n\n### Author\nMark Silverwood\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/SlicedSilver/autocomplete-polymer/issues"
+  },
+  "homepage": "https://github.com/SlicedSilver/autocomplete-polymer",
+  "_id": "autocomplete-polymer@0.2.4",
+  "_shasum": "4a77ce59440c8f8ab918cfdae893205b14f67190",
+  "_resolved": "file:../d-11575-31751-r6d4nj/package.tgz",
+  "_from": "../d-11575-31751-r6d4nj/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [
+      {
+        "name": "esprima",
+        "version": "2.5.0",
+        "path": "node_modules/esprima/esprima.js"
+      },
+      {
+        "name": "estraverse",
+        "version": "4.1.0",
+        "path": "node_modules/estraverse/estraverse.js"
+      },
+      {
+        "name": "scandal",
+        "version": "2.0.0",
+        "path": "node_modules/scandal/lib/scandal.js"
+      },
+      {
+        "name": "argparse",
+        "version": "0.1.16",
+        "path": "node_modules/scandal/node_modules/argparse/index.js"
+      },
+      {
+        "name": "underscore",
+        "version": "1.7.0",
+        "path": "node_modules/scandal/node_modules/argparse/node_modules/underscore/underscore.js"
+      },
+      {
+        "name": "underscore.string",
+        "version": "2.4.0",
+        "path": "node_modules/scandal/node_modules/argparse/node_modules/underscore.string/lib/underscore.string.js"
+      },
+      {
+        "name": "git-utils",
+        "version": "3.0.1",
+        "path": "node_modules/scandal/node_modules/git-utils/lib/git.js"
+      },
+      {
+        "name": "fs-plus",
+        "version": "2.8.1",
+        "path": "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus/lib/fs-plus.js"
+      },
+      {
+        "name": "async",
+        "version": "0.2.10",
+        "path": "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus/node_modules/async/lib/async.js"
+      },
+      {
+        "name": "mkdirp",
+        "version": "0.3.5",
+        "path": "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus/node_modules/mkdirp/index.js"
+      },
+      {
+        "name": "rimraf",
+        "version": "2.2.8",
+        "path": "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus/node_modules/rimraf/rimraf.js"
+      },
+      {
+        "name": "underscore-plus",
+        "version": "1.6.6",
+        "path": "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus/node_modules/underscore-plus/lib/underscore-plus.js"
+      },
+      {
+        "name": "underscore",
+        "version": "1.6.0",
+        "path": "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus/node_modules/underscore-plus/node_modules/underscore/underscore.js"
+      },
+      {
+        "name": "nan",
+        "version": "1.6.1",
+        "path": "node_modules/scandal/node_modules/git-utils/node_modules/nan/include_dirs.js"
+      },
+      {
+        "name": "isbinaryfile",
+        "version": "2.0.4",
+        "path": "node_modules/scandal/node_modules/isbinaryfile/index.js"
+      },
+      {
+        "name": "minimatch",
+        "version": "0.2.13",
+        "path": "node_modules/scandal/node_modules/minimatch/minimatch.js"
+      },
+      {
+        "name": "lru-cache",
+        "version": "2.6.5",
+        "path": "node_modules/scandal/node_modules/minimatch/node_modules/lru-cache/lib/lru-cache.js"
+      },
+      {
+        "name": "sigmund",
+        "version": "1.0.1",
+        "path": "node_modules/scandal/node_modules/minimatch/node_modules/sigmund/sigmund.js"
+      },
+      {
+        "name": "split",
+        "version": "0.2.10",
+        "path": "node_modules/scandal/node_modules/split/index.js"
+      },
+      {
+        "name": "through",
+        "version": "2.3.8",
+        "path": "node_modules/scandal/node_modules/split/node_modules/through/index.js"
+      },
+      {
+        "name": "underscore",
+        "version": "1.5.2",
+        "path": "node_modules/scandal/node_modules/underscore/underscore.js"
+      },
+      {
+        "name": "temp",
+        "version": "0.8.1",
+        "path": "node_modules/temp/lib/temp.js"
+      },
+      {
+        "name": "rimraf",
+        "version": "2.2.8",
+        "path": "node_modules/temp/node_modules/rimraf/rimraf.js"
+      }
+    ],
+    "extensions": {
+      ".json": [
+        "completions_blank.json",
+        "node_modules/esprima/package.json",
+        "node_modules/estraverse/package.json",
+        "node_modules/scandal/node_modules/argparse/node_modules/underscore/package.json",
+        "node_modules/scandal/node_modules/argparse/node_modules/underscore.string/bower.json",
+        "node_modules/scandal/node_modules/argparse/node_modules/underscore.string/component.json",
+        "node_modules/scandal/node_modules/argparse/node_modules/underscore.string/package.json",
+        "node_modules/scandal/node_modules/argparse/package.json",
+        "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus/node_modules/async/component.json",
+        "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus/node_modules/async/package.json",
+        "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus/node_modules/mkdirp/package.json",
+        "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus/node_modules/rimraf/package.json",
+        "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus/node_modules/underscore-plus/node_modules/underscore/package.json",
+        "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus/node_modules/underscore-plus/package.json",
+        "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus/package.json",
+        "node_modules/scandal/node_modules/git-utils/node_modules/nan/package.json",
+        "node_modules/scandal/node_modules/git-utils/package.json",
+        "node_modules/scandal/node_modules/isbinaryfile/package.json",
+        "node_modules/scandal/node_modules/minimatch/node_modules/lru-cache/package.json",
+        "node_modules/scandal/node_modules/minimatch/node_modules/sigmund/package.json",
+        "node_modules/scandal/node_modules/minimatch/package.json",
+        "node_modules/scandal/node_modules/split/node_modules/through/package.json",
+        "node_modules/scandal/node_modules/split/package.json",
+        "node_modules/scandal/node_modules/underscore/package.json",
+        "node_modules/scandal/package.json",
+        "node_modules/temp/node_modules/rimraf/package.json",
+        "node_modules/temp/package.json",
+        "package.json"
+      ],
+      ".coffee": [
+        "lib/autocomplete-polymer-view.coffee",
+        "lib/main.coffee",
+        "lib/provider.coffee"
+      ],
+      ".js": [
+        "lib/updater.js",
+        "node_modules/esprima/bin/esparse.js",
+        "node_modules/esprima/bin/esvalidate.js",
+        "node_modules/esprima/esprima.js",
+        "node_modules/estraverse/estraverse.js",
+        "node_modules/estraverse/gulpfile.js",
+        "node_modules/scandal/lib/chunked-executor.js",
+        "node_modules/scandal/lib/chunked-line-reader.js",
+        "node_modules/scandal/lib/chunked-scanner.js",
+        "node_modules/scandal/lib/multi-process-search.js",
+        "node_modules/scandal/lib/path-filter.js",
+        "node_modules/scandal/lib/path-replacer.js",
+        "node_modules/scandal/lib/path-scanner.js",
+        "node_modules/scandal/lib/path-searcher.js",
+        "node_modules/scandal/lib/scandal.js",
+        "node_modules/scandal/lib/single-process-search.js",
+        "node_modules/scandal/node_modules/argparse/examples/arguments.js",
+        "node_modules/scandal/node_modules/argparse/examples/choice.js",
+        "node_modules/scandal/node_modules/argparse/examples/constants.js",
+        "node_modules/scandal/node_modules/argparse/examples/help.js",
+        "node_modules/scandal/node_modules/argparse/examples/nargs.js",
+        "node_modules/scandal/node_modules/argparse/examples/parents.js",
+        "node_modules/scandal/node_modules/argparse/examples/prefix_chars.js",
+        "node_modules/scandal/node_modules/argparse/examples/sub_commands.js",
+        "node_modules/scandal/node_modules/argparse/examples/sum.js",
+        "node_modules/scandal/node_modules/argparse/examples/testformatters.js",
+        "node_modules/scandal/node_modules/argparse/index.js",
+        "node_modules/scandal/node_modules/argparse/lib/action/append/constant.js",
+        "node_modules/scandal/node_modules/argparse/lib/action/append.js",
+        "node_modules/scandal/node_modules/argparse/lib/action/count.js",
+        "node_modules/scandal/node_modules/argparse/lib/action/help.js",
+        "node_modules/scandal/node_modules/argparse/lib/action/store/constant.js",
+        "node_modules/scandal/node_modules/argparse/lib/action/store/false.js",
+        "node_modules/scandal/node_modules/argparse/lib/action/store/true.js",
+        "node_modules/scandal/node_modules/argparse/lib/action/store.js",
+        "node_modules/scandal/node_modules/argparse/lib/action/subparsers.js",
+        "node_modules/scandal/node_modules/argparse/lib/action/version.js",
+        "node_modules/scandal/node_modules/argparse/lib/action.js",
+        "node_modules/scandal/node_modules/argparse/lib/action_container.js",
+        "node_modules/scandal/node_modules/argparse/lib/argparse.js",
+        "node_modules/scandal/node_modules/argparse/lib/argument/error.js",
+        "node_modules/scandal/node_modules/argparse/lib/argument/exclusive.js",
+        "node_modules/scandal/node_modules/argparse/lib/argument/group.js",
+        "node_modules/scandal/node_modules/argparse/lib/argument_parser.js",
+        "node_modules/scandal/node_modules/argparse/lib/const.js",
+        "node_modules/scandal/node_modules/argparse/lib/help/added_formatters.js",
+        "node_modules/scandal/node_modules/argparse/lib/help/formatter.js",
+        "node_modules/scandal/node_modules/argparse/lib/namespace.js",
+        "node_modules/scandal/node_modules/argparse/node_modules/underscore/underscore-min.js",
+        "node_modules/scandal/node_modules/argparse/node_modules/underscore/underscore.js",
+        "node_modules/scandal/node_modules/argparse/node_modules/underscore.string/foo.js",
+        "node_modules/scandal/node_modules/argparse/node_modules/underscore.string/gulpfile.js",
+        "node_modules/scandal/node_modules/argparse/node_modules/underscore.string/lib/underscore.string.js",
+        "node_modules/scandal/node_modules/git-utils/lib/git.js",
+        "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus/lib/fs-plus.js",
+        "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus/node_modules/async/lib/async.js",
+        "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus/node_modules/mkdirp/examples/pow.js",
+        "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus/node_modules/mkdirp/index.js",
+        "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus/node_modules/rimraf/bin.js",
+        "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus/node_modules/rimraf/rimraf.js",
+        "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus/node_modules/underscore-plus/lib/underscore-plus.js",
+        "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus/node_modules/underscore-plus/node_modules/underscore/underscore-min.js",
+        "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus/node_modules/underscore-plus/node_modules/underscore/underscore.js",
+        "node_modules/scandal/node_modules/git-utils/node_modules/nan/include_dirs.js",
+        "node_modules/scandal/node_modules/isbinaryfile/index.js",
+        "node_modules/scandal/node_modules/minimatch/minimatch.js",
+        "node_modules/scandal/node_modules/minimatch/node_modules/lru-cache/lib/lru-cache.js",
+        "node_modules/scandal/node_modules/minimatch/node_modules/sigmund/bench.js",
+        "node_modules/scandal/node_modules/minimatch/node_modules/sigmund/sigmund.js",
+        "node_modules/scandal/node_modules/split/examples/pretty.js",
+        "node_modules/scandal/node_modules/split/index.js",
+        "node_modules/scandal/node_modules/split/node_modules/through/index.js",
+        "node_modules/scandal/node_modules/underscore/underscore-min.js",
+        "node_modules/scandal/node_modules/underscore/underscore.js",
+        "node_modules/temp/examples/grepcount.js",
+        "node_modules/temp/examples/pdfcreator.js",
+        "node_modules/temp/lib/temp.js",
+        "node_modules/temp/no_cleanup.js",
+        "node_modules/temp/no_cleanup_on_exit.js",
+        "node_modules/temp/no_cleanup_on_exit.spec.js",
+        "node_modules/temp/node_modules/rimraf/bin.js",
+        "node_modules/temp/node_modules/rimraf/rimraf.js"
+      ],
+      ".node": [
+        "node_modules/scandal/node_modules/git-utils/build/Release/git.node",
+        "node_modules/scandal/node_modules/git-utils/build/Release/obj.target/git.node"
+      ]
+    },
+    "folders": [
+      {
+        "paths": [
+          "",
+          "lib"
+        ],
+        "dependencies": {
+          "esprima": "^2.2.0",
+          "scandal": "2.0.0",
+          "temp": "0.8.1",
+          "estraverse": "^4.1.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/scandal/lib",
+          "node_modules/scandal"
+        ],
+        "dependencies": {
+          "underscore": "~1.5.1",
+          "minimatch": "0.2.13",
+          "git-utils": "^3.0.0",
+          "argparse": "~0.1",
+          "isbinaryfile": "~2.0.2",
+          "split": "~0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/scandal/node_modules/argparse/examples",
+          "node_modules/scandal/node_modules/argparse",
+          "node_modules/scandal/node_modules/argparse/lib/action/append",
+          "node_modules/scandal/node_modules/argparse/lib/action",
+          "node_modules/scandal/node_modules/argparse/lib/action/store",
+          "node_modules/scandal/node_modules/argparse/lib",
+          "node_modules/scandal/node_modules/argparse/lib/argument",
+          "node_modules/scandal/node_modules/argparse/lib/help"
+        ],
+        "dependencies": {
+          "underscore": "~1.7.0",
+          "underscore.string": "~2.4.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/scandal/node_modules/git-utils/build/Release",
+          "node_modules/scandal/node_modules/git-utils/build/Release/obj.target",
+          "node_modules/scandal/node_modules/git-utils/lib",
+          "node_modules/scandal/node_modules/git-utils"
+        ],
+        "dependencies": {
+          "fs-plus": "^2.1.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus/lib",
+          "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus"
+        ],
+        "dependencies": {
+          "underscore-plus": "1.x",
+          "mkdirp": "~0.3.5",
+          "rimraf": "~2.2.2",
+          "async": "~0.2.9"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus/node_modules/underscore-plus/lib",
+          "node_modules/scandal/node_modules/git-utils/node_modules/fs-plus/node_modules/underscore-plus"
+        ],
+        "dependencies": {
+          "underscore": "~1.6.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/scandal/node_modules/minimatch",
+          "node_modules/scandal/node_modules/minimatch/test"
+        ],
+        "dependencies": {
+          "lru-cache": "2",
+          "sigmund": "~1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/scandal/node_modules/split/examples",
+          "node_modules/scandal/node_modules/split",
+          "node_modules/scandal/node_modules/split/test"
+        ],
+        "dependencies": {
+          "through": "2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/temp/examples",
+          "node_modules/temp/lib",
+          "node_modules/temp",
+          "node_modules/temp/test"
+        ],
+        "dependencies": {
+          "rimraf": "~2.2.6"
+        }
+      }
+    ]
+  }
+}

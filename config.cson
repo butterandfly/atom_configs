@@ -1,0 +1,16 @@
+"*":
+  "exception-reporting":
+    userId: "9c73d0cd-f120-9531-c364-7603bd0b5d31"
+  welcome:
+    showOnStartup: false
+  core:
+    themes: [
+      "atom-dark-ui"
+      "atom-dark-syntax"
+    ]
+  editor:
+    invisibles: {}
+    fontFamily: "DejaVu Sans Mono,文泉驿正黑"
+  "vim-mode": {}
+  jsformat:
+    format_on_save: false
